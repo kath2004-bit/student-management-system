@@ -37,8 +37,10 @@ jobs:
           .venv/bin/pip install --upgrade pip
           .venv/bin/pip install buildozer Cython==0.29.33 virtualenv
 
-      - name: Build APK
-        run: buildozer android debug
+            - name: Build APK
+        run: |
+          source .venv/bin/activate
+          buildozer android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
